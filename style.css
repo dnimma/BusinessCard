@@ -1,0 +1,193 @@
+/* Preview background only */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  font-family: Arial;
+}
+
+/* Business card size + MUST be column layout for horizontal split */
+.card {
+  width: 3.5in;
+  height: 2in;
+
+  position: relative;  
+  display: flex;
+  flex-direction: column;   /* ✅ REQUIRED (top over bottom) */
+
+  
+  overflow: hidden;         /* clips content to edges */
+  
+}
+
+/* Photo holder: keeps photo smaller and centered */
+.photo-wrap {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  
+  width: 1.25in;
+  height: 100%;
+
+  
+}
+
+/* Photo size (small, not full section) */
+.photo {
+  width: 1.00in;
+  height: 1.60in;
+
+  object-fit: center;
+  
+}
+
+/* TOP area (80%) */
+.top {
+  height: 80%;
+  background: #5f5655;
+
+display: flex;
+  gap: 15px;
+  padding: 10px;
+
+  padding-left: 1.35in;          /* Space for photo */
+  padding-top: 15px;
+  padding-right: 15px;
+
+  color: #d8c07a;
+  box-sizing: border-box;
+}
+
+
+/* Text section */
+.info {
+ flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.name {
+   margin: 2px 0 6px 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+}
+
+
+.title {
+  margin: 0;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+
+.company {
+  margin: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.line {
+  width: 80%;
+  height: 2px;
+  background: #d8c07a;
+  margin: 6px 0;
+  
+}
+
+.detail {
+  margin: 0;
+  font-size: 7px;
+  letter-spacing: 0.7px;
+  
+}
+
+/* Normal link (blue) */
+.detail-link:link {
+	color: #1a73e8;
+  text-decoration: none;
+}
+
+/* Visited link (purple) */
+.detail-link:visited {
+  color: #6a1b9a;
+}
+
+/* Hover (darker blue) */
+.detail-link:hover {
+  color: #174ea6;
+}
+
+/* Active (clicking) */
+.detail-link:active {
+  color: #174ea6;
+}
+
+
+/* BOTTOM strip (30%) */
+.bottom {
+  height: 20%;
+  background-color: gold;
+
+  padding-left: 1.6in;
+  padding-right: 15px;
+
+  display: flex;
+  align-items: center;
+
+  /* Texture pattern overlay (tile) */
+  background-image: url("pattern.png");
+  background-repeat: repeat;
+  background-size: 300px 300px; /* adjust for smaller/larger texture */
+}
+
+
+/* Scan text stays on gold strip */
+.scan {
+  margin: 0;
+  text-align: right;
+  font-size: 9px;
+  font-weight: 700;
+  
+  
+  color: black;
+
+  width: 55%; /* leaves room for QR */
+}
+
+/* QR bottom-right */
+.qr {
+  width: 0.60in;
+  height: 0.60in;
+
+  object-fit: contain;
+  position: absolute;
+  right: 15px;
+  bottom: 7px;
+
+  background: green;
+  padding: 4px;
+  border-radius: 15px; 
+  
+}
+
+/* PRINT SETTINGS */
+@media print {
+  body {
+    background: white;
+  }
+
+  .detail-link {
+    color: #d8c07a !important;  /* matches card text */
+    
+  }
+}
+
